@@ -2,7 +2,10 @@ const mongoose = require("mongoose");
 
 const schema = new mongoose.Schema({
   occupation: String,
-  name: string,
+  firstname: String,
+  lastname: String,
+  email: String,
+  identification: String,
 });
 
-export default mongoose.model("customer", schema);
+module.exports = mongoose.model("customer", schema);

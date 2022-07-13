@@ -9,4 +9,4 @@ const schema = new mongoose.Schema({
   ],
 });
 
-export default mongoose.model("availablePolicy", schema);
+module.exports = mongoose.model("availablePolicy", schema);

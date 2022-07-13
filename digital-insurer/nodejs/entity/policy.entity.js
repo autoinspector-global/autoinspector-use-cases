@@ -10,9 +10,12 @@ const schema = new mongoose.Schema({
   goods: [
     {
       availableGoodId: mongoose.Types.ObjectId,
+      make: String,
+      model: String,
+      price: Number,
       productInspectionId: String,
     },
   ],
 });
 
-export default mongoose.model("policy", schema);
+module.exports = mongoose.model("policy", schema);
