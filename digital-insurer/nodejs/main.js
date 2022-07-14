@@ -15,6 +15,7 @@ const Autoinspector = require("autoinspector");
 const availableGoodEntity = require("./entity/available-good.entity");
 const AvailablePoliciesSeeder = require("./db/seeders/available-policies.seeder");
 const AvailableGoodsSeeder = require("./db/seeders/available-goods.seeder");
+const flow = require("./test/flow");
 
 // Instantiate autoinspector SDK
 const autoinspector = new Autoinspector({
@@ -91,6 +92,16 @@ app.post("/policy/:availablePolicyId", async (req, res) => {
     policyId: policy._id,
     inspectionId: inspection.inspectionId,
   });
+});
+
+app.get("/test/flow", async (req, res) => {
+  try {
+    await flow();
+    res.status(200).json({ success: true });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send(err);
+  }
 });
 
 app.post("/policy/:policyId/items", async (req, res) => {
