@@ -69,6 +69,7 @@ app.post('/auth/register', async (req, res) => {
   })
 
   const inspection = await autoinspector.inspections.people.create({
+    locale: 'es_AR',
     // See here that we pass the callbackURL. Because our server takes care of backend and frontend, we need the user back to our same domain
     callbackURL: `${req.get('origin')}/identity/verification`,
     initialStatus: 'started',

@@ -52,6 +52,7 @@ app.post('/policy/:availablePolicyId', async (req, res) => {
   })
 
   const inspection = await autoinspector.inspections.goods.create({
+    locale: 'es_AR',
     // Initialize the inspection with the started status. With this value, we avoid to start the inspection.
     initialStatus: 'started',
     delivery: {
